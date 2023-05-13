@@ -1,0 +1,33 @@
+@import url(./main.less);
+
+main{
+     .ar100v;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background-color: @bgLight;
+
+     form input[type=submit].startBtn{
+          transition: 0.2s;
+          &{
+               font-size: 60px;
+               padding: 32px;
+               aspect-ratio: 1;
+               .openSans;
+               background-color: @blueBtn;
+               border: @blueBtn 2px solid;
+               border-radius: 10px;
+               color: #ffffff;
+          }
+          &:hover{
+               background-color: @blueBtnHover;
+               border: @blueBtnHover 2px solid;
+               color: #ffffff;
+          }
+          &:active{
+               background-color: @blueBtnFocus;
+               border: @blueBtnFocus 2px solid;
+               color: #ffffff;
+          }
+     }
+}

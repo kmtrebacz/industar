@@ -1,0 +1,55 @@
+@import url(./main.less);
+
+*{
+     overflow: hidden
+}
+
+main{
+     .ar100v;
+     display: flex;
+     background-color: @bgLight;
+     
+     .col-5{
+          height: 100vh;
+
+          .listItem{
+               background-color: @bgSuperLight;
+               padding: 0;
+               border-bottom: #7f7f7f46 2px solid;
+
+               section.top{
+                    padding: 10px;
+               }
+               section.bottom{
+                    padding: 10px;
+                    font-weight: 600;
+               }
+          }
+     }
+
+     .col-7 {
+          overflow-y: scroll;
+          .row {
+               .col-4.p-4.avaliableImgItem{
+
+                    .content{
+                         background-color: @bgDarker;
+                         aspect-ratio: 1;
+
+                         .img{
+                              height: calc(100% - 40px);
+                         }
+                         .price{
+                              background-color: @bgDarkest;
+                              color: #ffffff;
+                              font-size: 24px;
+                              padding: 2px;
+                         }
+                    }
+                    .name{
+                         font-size: 24px;
+                    }
+               }
+          }
+     }
+}
