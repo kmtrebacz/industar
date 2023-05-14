@@ -16,95 +16,70 @@
 
      <main>
 
-          <div class="col-7">
+          <div id="top">
+               <div class="col-7">
 
-               <div class="row">
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
+                    <div class="row">
+                         <div class="col-4 p-4 avaliableImgItem">
+                              <div class="content">
+                                   <div class="img"></div>
+                                   <div class="price">3.00</div>
+                              </div>
+                              <div class="name">
+                                   Product name
+                              </div>
                          </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
+                         <div class="col-4 p-4 avaliableImgItem">
+                              <div class="content">
+                                   <div class="img"></div>
+                                   <div class="price">3.00</div>
+                              </div>
+                              <div class="name">
+                                   Product name
+                              </div>
                          </div>
                     </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
-                    <div class="col-4 p-4 avaliableImgItem">
-                         <div class="content">
-                              <div class="img"></div>
-                              <div class="price">3.00</div>
-                         </div>
-                         <div class="name">
-                              Product name
-                         </div>
-                    </div>
+
                </div>
 
+
+               <div class="col-5">
+
+                    <div class="col-12 listItem">
+                         <section class="top">Product name</section>
+                         <section class="d-flex justify-content-between bottom">
+                              <span class="listItemPieces">1 piece</span>
+                              <span class="listItemPrice">3.00</span>
+                         </section>
+                    </div>
+
+                    <div class="col-12 listItem">
+                         <section class="top">Product name</section>
+                         <section class="d-flex justify-content-between bottom">
+                              <span class="listItemPieces">1 piece</span>
+                              <span class="listItemPrice">3.00</span>
+                         </section>
+                    </div>
+
+               </div>
           </div>
 
+          <div id="bottom">
+               <div class="col-7">
+                    <div class="d-flex">
 
-          <div class="col-5">
+                         <div class="col-4 actionButton cancel">Cancel</div>
+                         <div class="col-4 actionButton undo">Undo</div>
+                         <div class="col-4 actionButton pay">Pay</div>
 
-               <div class="col-12 listItem">
-                    <section class="top">Product name</section>
-                    <section class="d-flex justify-content-between bottom">
-                         <span class="listItemPieces">1 piece</span>
-                         <span class="listItemPrice">3.00</span>
-                    </section>
+                    </div>
                </div>
 
-               <div class="col-12 listItem">
-                    <section class="top">Product name</section>
-                    <section class="d-flex justify-content-between bottom">
-                         <span class="listItemPieces">1 piece</span>
-                         <span class="listItemPrice">3.00</span>
-                    </section>
+               <div class="col-5">
+                    <div class="d-flex">
+                         <span class="col-12 finalPrice">6.00</span>
+                    </div>
                </div>
-
           </div>
 
      </main>

@@ -1,55 +1,105 @@
 @import url(./main.less);
 
 *{
-     overflow: hidden
+     overflow: hidden;
+     scrollbar-width: thin;
+     scrollbar-color: #8d8e90 #ffffff00;
+}
+
+*::-webkit-scrollbar {
+     width: 6px;
+}
+ 
+*::-webkit-scrollbar-track {
+     background: #ffffff00;
+}
+ 
+*::-webkit-scrollbar-thumb {
+     background-color: #8d8e90;
+     border-radius: 25px;
+     border: 3px solid #ffffff00;
 }
 
 main{
-     .ar100v;
-     display: flex;
-     background-color: @bgLight;
-     
-     .col-5{
-          height: 100vh;
+     #top{
+          height: calc(100vh -  76px);
+          width: 100vw;
+          display: flex;
+          background-color: @bgLight;
+          
+          .col-5{
+               overflow-y: scroll;
+               height: 100vh;
 
-          .listItem{
-               background-color: @bgSuperLight;
-               padding: 0;
-               border-bottom: #7f7f7f46 2px solid;
+               .listItem{
+                    background-color: @bgSuperLight;
+                    padding: 0;
+                    border-bottom: #7f7f7f46 2px solid;
 
-               section.top{
-                    padding: 10px;
+                    section.top{
+                         padding: 10px;
+                    }
+                    section.bottom{
+                         padding: 10px;
+                         font-weight: 600;
+                    }
                }
-               section.bottom{
-                    padding: 10px;
-                    font-weight: 600;
+          }
+
+          .col-7 {
+               overflow-y: scroll;
+               .row {
+                    .col-4.p-4.avaliableImgItem{
+                         cursor: pointer;
+
+                         .content{
+                              background-color: @bgDarker;
+                              aspect-ratio: 1;
+
+                              .img{
+                                   height: calc(100% - 40px);
+                              }
+                              .price{
+                                   background-color: @bgDarkest;
+                                   color: #ffffff;
+                                   font-size: 24px;
+                                   padding: 2px;
+                              }
+                         }
+                         .name{
+                              font-size: 24px;
+                         }
+                    }
                }
           }
      }
-
-     .col-7 {
-          overflow-y: scroll;
-          .row {
-               .col-4.p-4.avaliableImgItem{
-
-                    .content{
-                         background-color: @bgDarker;
-                         aspect-ratio: 1;
-
-                         .img{
-                              height: calc(100% - 40px);
-                         }
-                         .price{
-                              background-color: @bgDarkest;
-                              color: #ffffff;
-                              font-size: 24px;
-                              padding: 2px;
-                         }
-                    }
-                    .name{
-                         font-size: 24px;
-                    }
+     #bottom{
+          background-color: @bgLightDarker;
+          height: 76px;
+          display: flex;
+          .col-7 .d-flex .actionButton{
+               padding: 20px;
+               font-size: 24px;
+               text-align: center;
+               cursor: pointer;
+               &.cancel{
+                    background-color: #E6102A;
+                    color: #fff;
                }
+               &.undo{
+                    background-color: #FECF0F;
+                    color: #000;
+               }
+               &.pay{
+                    background-color: #09AA4C;
+                    color: #fff;
+               }
+          }
+
+          .col-5 .d-flex .finalPrice{
+               padding: 20px;
+               font-size: 24px;
+               text-align: end;
           }
      }
 }
