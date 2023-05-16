@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2023 at 07:41 PM
+-- Generation Time: May 16, 2023 at 03:37 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -30,23 +30,24 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int NOT NULL,
-  `name` varchar(6) DEFAULT NULL,
-  `price` decimal(3,2) DEFAULT NULL,
-  `img_src` varchar(10) DEFAULT NULL,
-  `id_category` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+  `name` varchar(45) DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `img_src` varchar(45) DEFAULT NULL,
+  `id_category` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fk_products_products_category_idx` (`id_category`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `img_src`, `id_category`) VALUES
-(1, 'test_1', '3.20', '', 1),
-(2, 'test_2', '4.20', '', 1),
-(3, 'test_3', '3.70', '', 1),
-(4, 'test_4', '5.00', '', 1),
-(5, 'test_5', '3.00', '', 1);
+(1, 'product_x', 4, NULL, 1),
+(2, 'product_y', 3, NULL, 1),
+(3, 'product_z', 6, NULL, 2),
+(4, 'product_w', 11, NULL, 1),
+(5, 'product_u', 7, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -57,17 +58,27 @@ INSERT INTO `products` (`id`, `name`, `price`, `img_src`, `id_category`) VALUES
 DROP TABLE IF EXISTS `products_category`;
 CREATE TABLE IF NOT EXISTS `products_category` (
   `id` int NOT NULL,
-  `name` varchar(10) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Dumping data for table `products_category`
 --
 
 INSERT INTO `products_category` (`id`, `name`) VALUES
-(1, 'category_1'),
-(2, 'category_2');
+(1, 'category_a'),
+(2, 'category_b');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `products`
+--
+ALTER TABLE `products`
+  ADD CONSTRAINT `fk_products_products_category` FOREIGN KEY (`id_category`) REFERENCES `products_category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
