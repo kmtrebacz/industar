@@ -18,28 +18,32 @@
 
           <div id="top">
                <div class="col-7">
+                    <?php
+                      require('connect.php');
 
-                    <div class="row">
-                         <div class="col-4 p-4 avaliableImgItem">
-                              <div class="content">
-                                   <div class="img"></div>
-                                   <div class="price">3.00</div>
-                              </div>
-                              <div class="name">
-                                   Product name
-                              </div>
-                         </div>
-                         <div class="col-4 p-4 avaliableImgItem">
-                              <div class="content">
-                                   <div class="img"></div>
-                                   <div class="price">3.00</div>
-                              </div>
-                              <div class="name">
-                                   Product name
-                              </div>
-                         </div>
-                    </div>
+                      $query = "SELECT name, price FROM products";
+                      $result = $conn->query($query);
 
+                      if ($result->num_rows > 0) {
+                        echo '<div class="row">';
+
+                        while ($row = $result->fetch_assoc()) {
+                          $formattedPrice = number_format($row['price'], 2, '.', '');
+                          echo 
+                            '<div class="col-4 p-4 avaliableImgItem"><div class="content"><div class="img"></div><div class="price">' . 
+                            $formattedPrice 
+                            . '</div></div><div class="name">' . 
+                            $row['name']
+                            . '</div></div>';
+                        }
+                        echo '</div>';
+                      } 
+                      else {
+                        echo 'Error: No products in the database';
+                      }
+                      
+                      $conn->close();
+                    ?>
                </div>
 
 
