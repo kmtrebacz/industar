@@ -1,2 +1,2 @@
-# self-checkout-php
-Self checkout app build in php
+# industar
+Open sourse self checkout program built in php and js
