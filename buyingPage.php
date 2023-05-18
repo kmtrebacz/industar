@@ -30,7 +30,11 @@
                         while ($row = $result->fetch_assoc()) {
                           $formattedPrice = number_format($row['price'], 2, '.', '');
                           echo 
-                            '<div class="col-4 p-4 avaliableImgItem"><div class="content"><div class="img"></div><div class="price">' . 
+                            '<div class="col-4 p-4 avaliableItem" data-product-price="' .
+                            $formattedPrice
+                            . '" data-product-name="' .
+                            $row['name']
+                            . '"><div class="content"><div class="img"></div><div class="price">' . 
                             $formattedPrice 
                             . '</div></div><div class="name">' . 
                             $row['name']
@@ -47,23 +51,7 @@
                </div>
 
 
-               <div class="col-5">
-
-                    <div class="col-12 listItem">
-                         <section class="top">Product name</section>
-                         <section class="d-flex justify-content-between bottom">
-                              <span class="listItemPieces">1 piece</span>
-                              <span class="listItemPrice">3.00</span>
-                         </section>
-                    </div>
-
-                    <div class="col-12 listItem">
-                         <section class="top">Product name</section>
-                         <section class="d-flex justify-content-between bottom">
-                              <span class="listItemPieces">1 piece</span>
-                              <span class="listItemPrice">3.00</span>
-                         </section>
-                    </div>
+               <div class="col-5 selected_items">
 
                </div>
           </div>
@@ -93,6 +81,7 @@
           crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/less" ></script>
      <script src="./scripts/buttons.js"></script>
+     <script src="./scripts/products.js"></script>
 </body>
 
 </html>
