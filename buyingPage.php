@@ -69,7 +69,7 @@
 
                <div class="col-5">
                     <div class="d-flex">
-                         <span class="col-12 finalPrice">6.00</span>
+                         <span class="col-12 finalPrice">0</span>
                     </div>
                </div>
           </div>
