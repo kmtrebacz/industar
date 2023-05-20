@@ -4,7 +4,6 @@ const selectedItems =document.querySelector(".selected_items")
 const cart = {
   items: [],
 
-  // Add an item to the cart
   addItem(item, quantity, price) {
     const existingItem = this.items.find((cartItem) => cartItem.item === item);
     if (existingItem) {
@@ -16,7 +15,6 @@ const cart = {
     }
   },
 
-  // Remove an item from the cart
   removeItem(item) {
     const index = this.items.findIndex((cartItem) => cartItem.item === item)
     if (index !== -1) {
@@ -27,13 +25,11 @@ const cart = {
     }
   },
 
-  // Clear all items from the cart
   clearCart() {
     this.items = []
     console.log('Cart cleared.')
   },
 
-  // Get the number of items in the cart
   getItemCount() {
     let totalCount = 0
     this.items.forEach((cartItem) => {
@@ -42,7 +38,6 @@ const cart = {
     return totalCount
   },
 
-  // Get the total price of items in the cart
   getTotalPrice() {
     let totalPrice = 0
     this.items.forEach((cartItem) => {
@@ -51,7 +46,6 @@ const cart = {
     return totalPrice.toFixed(2)
   },
 
-  // Print the items in the cart
   printCart() {
     selectedItems.innerHTML = ""
     this.items.forEach((cartItem, index) => {
@@ -75,7 +69,6 @@ avaliableItem.forEach(item => {
         
     cart.addItem(item.getAttribute('data-product-name'), 1, item.getAttribute('data-product-price'))
     cart.printCart()
-
 
   })
 })
