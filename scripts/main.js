@@ -1,6 +1,14 @@
 let avaliableItem = document.querySelectorAll(".avaliableItem")
 const selectedItems =document.querySelector(".selected_items")
 
+const cancelBtn = document.querySelector("div.cancel")
+const undoBtn = document.querySelector("div.undo")
+const payBtn = document.querySelector("div.pay")
+
+/*
+    UPDATING LIST
+*/
+
 const cart = {
   items: [],
 
@@ -63,7 +71,6 @@ const cart = {
   }
 }
 
-
 avaliableItem.forEach(item => {
   item.addEventListener('click', () => {
         
@@ -71,4 +78,15 @@ avaliableItem.forEach(item => {
     cart.printCart()
 
   })
+})
+
+
+/*
+    BOTTOM BUTTONS
+*/
+
+cancelBtn.addEventListener('click', () => {
+  if (confirm("Do you want to back to start page?") === true) {
+       location.replace("./index.php")
+  }
 })
