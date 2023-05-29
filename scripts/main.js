@@ -1,8 +1,8 @@
 let avaliableItem = document.querySelectorAll(".avaliableItem")
-const selectedItems =document.querySelector(".selected_items")
+let delItems = document.querySelectorAll(".delItems")
+const selectedItems = document.querySelector(".selected_items")
 
 const cancelBtn = document.querySelector("div.cancel")
-const undoBtn = document.querySelector("div.undo")
 const payBtn = document.querySelector("div.pay")
 
 /*
@@ -13,7 +13,7 @@ const cart = {
   items: [],
 
   addItem(item, quantity, price) {
-    const existingItem = this.items.find((cartItem) => cartItem.item === item);
+    const existingItem = this.items.find((cartItem) => cartItem.item === item)
     if (existingItem) {
       existingItem.quantity += quantity
       console.log(`Item "${item}" quantity updated in the cart.`)
@@ -57,15 +57,14 @@ const cart = {
   printCart() {
     selectedItems.innerHTML = ""
     this.items.forEach((cartItem, index) => {
-      let pq = cartItem.quantity *  cartItem.price
-      selectedItems.innerHTML = selectedItems.innerHTML + 
-          `<div class="col-12 listItem"><section class="top">
+      let pq = cartItem.quantity * cartItem.price
+      selectedItems.innerHTML += `<div class="listItem d-flex"><div class="col-12"><section class="top col-12">
           ${cartItem.item}
-          </section><section class="d-flex justify-content-between bottom"><span class="listItemPieces">
+          </section><section class="d-flex justify-content-between bottom col-12"><span class="listItemPieces">
           ${cartItem.quantity} 
           </span><span class="listItemPrice">
           ${pq.toFixed(2)}
-          </span></section></div>`
+          </span></section></div></div>`
     })
     document.querySelector(".finalPrice").innerHTML = 'Total Price: ' + this.getTotalPrice()
   }
@@ -73,20 +72,75 @@ const cart = {
 
 avaliableItem.forEach(item => {
   item.addEventListener('click', () => {
-        
-    cart.addItem(item.getAttribute('data-product-name'), 1, item.getAttribute('data-product-price'))
+    cart.addItem(item.getAttribute("data-product-name"), 1, item.getAttribute('data-product-price'))
     cart.printCart()
-
   })
 })
 
+if (delItems.length > 0) {
+  delItems.forEach(item => {
+    item.addEventListener('click', () => {
+      let itemProductName = item.dataset.itemName.trim()
+      console.log(itemProductName)
 
-/*
-    BOTTOM BUTTONS
-*/
+      if (cart && typeof cart.removeItem === 'function') {
+        cart.removeItem(itemProductName)
+        cart.printCart()
+      } else {
+        console.log("Cart or removeItem method not found.")
+      }
+    })
+  })
+} else {
+  console.log("No items found with the class 'delItems'.")
+}
 
-cancelBtn.addEventListener('click', () => {
-  if (confirm("Do you want to back to start page?") === true) {
-       location.replace("./index.php")
+cancelBtn.addEventListener("click", () => {
+  if (confirm("Do you want to go back to the start page?")) {
+    location.replace("./index.php")
   }
 })
+
+payBtn.addEventListener("click", () => {
+  if (confirm("Are you sure you want to pay?")) {
+    const bill = generateBill()
+    redirectToClearWebsite(bill)
+  }
+})
+
+function generateBill() {
+  let bill = ""
+
+  bill += "<h1>Bill</h1>"
+  bill += "<table>"
+  bill += "<tr><th>Item</th><th>Quantity</th><th>Price</th><th>Total</th></tr>"
+
+  cart.items.forEach(cartItem => {
+    const total = (cartItem.quantity * cartItem.price).toFixed(2)
+
+    bill += `<tr><td>${cartItem.item}</td><td>${cartItem.quantity}</td><td>${cartItem.price}</td><td>${total}</td></tr>`
+  })
+
+  bill += "<tr><td colspan='3'>Total Price:</td><td>" + cart.getTotalPrice() + "</td></tr>"
+  bill += "</table>"
+
+  return bill
+}
+
+function redirectToClearWebsite(bill) {
+  const clearWebsiteURL = "./bill.php"
+
+  const form = document.createElement("form")
+  form.action = clearWebsiteURL
+  form.method = "POST"
+
+  const billInput = document.createElement("input")
+  billInput.type = "hidden"
+  billInput.name = "bill"
+  billInput.value = bill
+
+  form.appendChild(billInput)
+
+  document.body.appendChild(form)
+  form.submit()
+}

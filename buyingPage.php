@@ -7,6 +7,7 @@
      <title>Buying Page</title>
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
      <link rel="stylesheet/less" type="text/css" href="./style/main.less" />
      <link rel="stylesheet/less" type="text/css" href="./style/buyingPage.less" />
           
@@ -60,9 +61,8 @@
                <div class="col-7">
                     <div class="d-flex">
 
-                         <div class="col-4 actionButton cancel">Cancel</div>
-                         <div class="col-4 actionButton undo">Undo</div>
-                         <div class="col-4 actionButton pay">Pay</div>
+                         <div class="col-6 actionButton cancel">Cancel</div>
+                         <div class="col-6 actionButton pay">Pay</div>
 
                     </div>
                </div>
