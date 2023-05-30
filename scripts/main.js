@@ -112,7 +112,7 @@ function generateBill() {
   let bill = ""
 
   bill += "<h1>Bill</h1>"
-  bill += "<table>"
+  bill += '<table class="table table-striped">'
   bill += "<tr><th>Item</th><th>Quantity</th><th>Price</th><th>Total</th></tr>"
 
   cart.items.forEach(cartItem => {

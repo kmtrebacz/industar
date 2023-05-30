@@ -15,6 +15,8 @@
 
 <body>
 
+     <?php include './include/navbar.html';?>
+
      <main>
 
           <div id="top">
@@ -31,7 +33,7 @@
                         while ($row = $result->fetch_assoc()) {
                           $formattedPrice = number_format($row['price'], 2, '.', '');
                           echo 
-                            '<div class="col-4 p-4 avaliableItem" data-product-price="' .
+                            '<div class="col-3 p-4 avaliableItem" data-product-price="' .
                             $formattedPrice
                             . '" data-product-name="' .
                             $row['name']

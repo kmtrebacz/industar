@@ -1,19 +1,15 @@
 @import url(./main.less);
 
-main{
-     height: calc(100vh - 65px);
-     width: 100vw;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+body {
      background-color: @bgLight;
+     height: 100vh;
+     width: 100vw;
 
-     form input[type=submit].startBtn{
+     .col-12 .back{
           transition: 0.2s;
           &{
-               font-size: 60px;
-               padding: 32px;
-               aspect-ratio: 1;
+               font-size: 18px;
+               padding: 5px;
                .openSans;
                background-color: @blueBtn;
                border: @blueBtn 2px solid;

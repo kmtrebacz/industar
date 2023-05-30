@@ -14,6 +14,8 @@
 
 <body>
 
+     <?php include './include/navbar.html';?>
+
      <main>
 
           <form action="./buyingPage.php">
