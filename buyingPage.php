@@ -22,7 +22,7 @@
           <div id="top">
                <div class="col-7">
                     <?php
-                      require('connect.php');
+                      require('./include/connect.php');
 
                       $query = "SELECT name, price FROM products";
                       $result = $conn->query($query);
