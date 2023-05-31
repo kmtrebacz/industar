@@ -97,7 +97,7 @@ if (delItems.length > 0) {
 
 cancelBtn.addEventListener("click", () => {
   if (confirm("Do you want to go back to the start page?")) {
-    location.replace("./index.php")
+    location.replace("./../index.php")
   }
 })
 

@@ -1,5 +1,5 @@
 {
   "DATABASE_ADMIN_USER": "root",
   "DATABASE_ADMIN_PASSWORD": "",
-  "DATABASE_NAME": "self-checkout-php"
+  "DATABASE_NAME": "industar"
 }
