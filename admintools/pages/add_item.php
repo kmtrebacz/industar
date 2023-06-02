@@ -77,8 +77,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
           <div class="content p-4">
                <h2>ADD ITEM</h2>
-
-               <br><br><a href="./../../index.php" class="me-2">shop main page</a>
           </div>
 
      </div>

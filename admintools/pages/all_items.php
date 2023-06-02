@@ -77,8 +77,35 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
           <div class="content p-4">
                <h2>ALL ITEMS</h2>
+               <?php
+                    require('./include/connect.php');
 
-               <br><br><a href="./../../index.php" class="me-2">shop main page</a>
+                    $query = "SELECT products.id, products.name, products.price, products_category.name AS 'category_name' FROM products JOIN products_category ON products_category.id = products.id_category";
+                    $result = $conn->query($query);
+
+                    if ($result->num_rows > 0) {
+                        echo '<table class="table table-striped"><thead><tr><th scope="col">PRODUCT ID</th><th scope="col">PRODUCT NAME</th><th scope="col">PRODUCT PRICE</th><th scope="col">PRODUCT CATEGORY</th></tr></thead><tbody>';
+
+                         while ($row = $result->fetch_assoc()) {
+                            echo
+                              '<tr><td>' .
+                            $row['id']
+                            . '</td><td>' .
+                            $row['name']
+                            . '</td><td>' .
+                            $row['price']
+                            . '</td><td>' .
+                            $row['category_name']
+                            . '</td></tr>';
+                         }
+                         echo '</tbody></table>';
+                    } 
+                    else {
+                         echo 'Error: No products in the database';
+                    }
+                      
+                      $conn->close();
+               ?>
           </div>
 
      </div>
