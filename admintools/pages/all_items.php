@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    header("Location: login.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +38,7 @@
                <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
 
                     <li class="nav-item">
-                         <a href="./home.php" class="nav-link py-3 border-bottom" title="Home" data-bs-toggle="tooltip"
+                         <a href="./index.php" class="nav-link py-3 border-bottom" title="Home" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
                               <i class="bi bi-house" style="font-size: 24px;"></i>
                          </a>
@@ -45,6 +55,20 @@
                          <a href="./all_items.php" class="nav-link active py-3 border-bottom" title="All items" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
                               <i class="bi bi-list-ul" style="font-size: 24px;"></i>
+                         </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                         <a href="./../../index.php" class="nav-link py-3 border-bottom" title="Shop main page" data-bs-toggle="tooltip"
+                              data-bs-placement="right" style="border-radius: 0;">
+                              <i class="bi bi-cart4" style="font-size: 24px;"></i>
+                         </a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a href="./logout.php" class="nav-link py-3 border-bottom" title="Log out" data-bs-toggle="tooltip"
+                              data-bs-placement="right" style="border-radius: 0;">
+                              <i class="bi bi-power" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
