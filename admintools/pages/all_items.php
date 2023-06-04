@@ -45,7 +45,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     </li>
 
                     <li class="nav-item">
-                         <a href="./add_item.php" class="nav-link py-3 border-bottom" title="Add item" data-bs-toggle="tooltip" 
+                         <a href="./add.php" class="nav-link py-3 border-bottom" title="Add item" data-bs-toggle="tooltip" 
                               data-bs-placement="right" style="border-radius: 0;">
                               <i class="bi bi-plus-lg" style="font-size: 24px;"></i>
                          </a>
