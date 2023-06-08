@@ -40,21 +40,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <li class="nav-item">
                          <a href="./index.php" class="nav-link py-3 border-bottom" title="Home" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-house" style="font-size: 24px;"></i>
+                              <i class="bi bi-house-fill" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
                     <li class="nav-item">
                          <a href="./add.php" class="nav-link py-3 border-bottom" title="Add item" data-bs-toggle="tooltip" 
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-plus-lg" style="font-size: 24px;"></i>
+                              <i class="bi bi-database-fill-add" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
                     <li class="nav-item">
-                         <a href="./all_items.php" class="nav-link active py-3 border-bottom" title="All items" data-bs-toggle="tooltip"
+                         <a href="./show.php" class="nav-link active py-3 border-bottom" title="Show" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-list-ul" style="font-size: 24px;"></i>
+                              <i class="bi bi-table" style="font-size: 24px;"></i>
                          </a>
                     </li>
                     
@@ -76,8 +76,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
           </div>
 
           <div class="content p-4">
+               <section class="border border-dark-subtle rounded p-2">
+
                <h2>ALL ITEMS</h2>
-               <?php
+
+                <?php
                     require('./include/connect.php');
 
                     $query = "SELECT products.id, products.name, products.price, products_category.name AS 'category_name' FROM products JOIN products_category ON products_category.id = products.id_category";
@@ -105,7 +108,37 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     }
                       
                       $conn->close();
-               ?>
+                ?>
+                </section>  
+
+                <br><br>
+
+                <section class="border border-dark-subtle rounded p-2">
+
+                    <h2>ALL CATEGORY</h2>
+
+                    <?php
+                      require('./include/connect.php');
+
+                      $query = "SELECT * FROM products_category";
+                      $result = $conn->query($query);
+
+                      if ($result->num_rows > 0) {
+                          echo '<table class="table table-striped"><thead><tr><th scope="col">CATEGORY ID</th><th scope="col">NAME</th></tr></thead><tbody>';
+                          while ($row = $result->fetch_assoc()) {
+                              echo
+                                '<tr><td>' .
+                                $row['id']
+                                . '</td><td>' .
+                                $row['name']
+                                . '</td></tr>';
+
+                          }
+                          echo '</tbody></table>';
+                      }
+                    ?>
+                </section>
+
           </div>
 
      </div>

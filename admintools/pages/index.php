@@ -40,21 +40,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                     <li class="nav-item">
                          <a href="./index.php" class="nav-link active py-3 border-bottom" title="Home" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-house" style="font-size: 24px;"></i>
+                              <i class="bi bi-house-fill" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
                     <li class="nav-item">
                          <a href="./add.php" class="nav-link py-3 border-bottom" title="Add" data-bs-toggle="tooltip" 
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-plus-lg" style="font-size: 24px;"></i>
+                              <i class="bi bi-database-fill-add" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
                     <li class="nav-item">
-                         <a href="./all_items.php" class="nav-link py-3 border-bottom" title="All items" data-bs-toggle="tooltip"
+                         <a href="./show.php" class="nav-link py-3 border-bottom" title="Show" data-bs-toggle="tooltip"
                               data-bs-placement="right" style="border-radius: 0;">
-                              <i class="bi bi-list-ul" style="font-size: 24px;"></i>
+                              <i class="bi bi-table" style="font-size: 24px;"></i>
                          </a>
                     </li>
 
