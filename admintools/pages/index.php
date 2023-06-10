@@ -77,6 +77,21 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 
           <div class="content p-4">
                <h2>HOME</h2>
+
+                <p>You have been logged as an <strong>
+                <?php
+                  $configFile = './../admin_config.json';
+
+                  if (!file_exists($configFile)) {
+                      die('Plik konfiguracyjny nie istnieje.');
+                  }
+   
+                  $configData = file_get_contents($configFile);
+                  $config = json_decode($configData, true);
+
+                  echo $config['ADMIN_NAME'];
+                ?>
+                </strong></p>
           </div>
 
      </div>
